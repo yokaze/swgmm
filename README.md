@@ -9,6 +9,9 @@ This repository contains an alternative implementation of "Sliced Wasserstein Di
 The figures describe the status of estimation (top-left), transport cost for each observation (middle-left), alignment of empirical and estimated distributions (bottom-left), and the history of estimated sliced Wasserstein distance (right).
 You get this result in animation by running `swgmm.py`.
 
+**NOTE:** This implementation does not estimate full covariance matrix, instead it only estimates the diagonal components.
+Also, it applies gradients on the logarithm of unnormalized Gaussian weights and those of diagonal components in covariance matrices. These changes make the implementation easier, at the expense of moderate performance degradation.
+
 ## Resources
 
 - Comparison of KL, Wasserstein-1, and Wasserstein-2 distances with respect to the coordinate of the left Gaussian component.
