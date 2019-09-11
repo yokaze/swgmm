@@ -306,31 +306,32 @@ def estimate(nstep, ndirection, fixed_directions=None, order=2, use_adam=True):
             draw_figure()
         pl.pause(.1)
 
-# Set graph size.
-pl.figure(figsize=[7.5, 5])
+if (__name__ == '__main__'):
+    # Set graph size.
+    pl.figure(figsize=[7.5, 5])
 
-# Set the number of Gaussian components and the number of iterations.
-nclass = 5
-nstep = 100
+    # Set the number of Gaussian components and the number of iterations.
+    nclass = 5
+    nstep = 100
 
-# Set the number of directions used for sliced Wasserstein distance approximation.
-# The calculation converges to the exact SW distance when ndirection = infty.
-ndirection = 5
+    # Set the number of directions used for sliced Wasserstein distance approximation.
+    # The calculation converges to the exact SW distance when ndirection = infty.
+    ndirection = 5
 
-# If you would like to fix some of the direction vectors, please put it here.
-fixed_directions = None
-# fixed_directions = [[1, 0]]
-# fixed_directions = [[1, 0], [0, 1]]
-# fixed_directions = [[1., 0.], [0., 1.], [np.sqrt(2), np.sqrt(2)]]
-# fixed_directions = [[1., 0.], [0., 1.], [np.sqrt(2), np.sqrt(2)], [np.sqrt(2), -np.sqrt(2)]]
+    # If you would like to fix some of the direction vectors, please put it here.
+    fixed_directions = None
+    # fixed_directions = [[1, 0]]
+    # fixed_directions = [[1, 0], [0, 1]]
+    # fixed_directions = [[1., 0.], [0., 1.], [np.sqrt(2), np.sqrt(2)]]
+    # fixed_directions = [[1., 0.], [0., 1.], [np.sqrt(2), np.sqrt(2)], [np.sqrt(2), -np.sqrt(2)]]
 
-# Set the order of Wasserstein distance.
-# This implementation allows one and two only.
-order = 2
+    # Set the order of Wasserstein distance.
+    # This implementation allows one and two only.
+    order = 2
 
-# Determine to use Adam or RMSprop.
-use_adam = True
-estimate(nstep, ndirection, fixed_directions, order, use_adam)
+    # Determine to use Adam or RMSprop.
+    use_adam = True
+    estimate(nstep, ndirection, fixed_directions, order, use_adam)
 
-# Halt the program when inference is done.
-pl.show()
+    # Halt the program when inference is done.
+    pl.show()
